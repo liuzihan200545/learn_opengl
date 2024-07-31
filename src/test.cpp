@@ -47,32 +47,28 @@ int main()
     auto t2 = Texture("../assets/wall.jpg",1);
     shader.setInt("Sampler1",1);
     //shader.setInt("Sampler2",1);
-    //
-    glm::mat4 trans(1.0f);
-    glm::mat4 trans1(1.0f);
 
-    trans1 = glm::translate(trans1, glm::vec3(0.0f, 0.0f, 0.0f));
-    trans1 = glm::scale(trans1,glm::vec3(0.5f,0.3f,1.3f));
+    glm::mat4 model(1.0f);
+    model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    glm::mat4 view(1.0f);
+    // 注意，我们将矩阵向我们要进行移动场景的反方向移动。
+    view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+    glm::mat4 projection(1.0f);
+    projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+
+    shader.setMat4("model",model);
+    shader.setMat4("view",view);
+    shader.setMat4("projection",projection);
 
     unsigned int a[] = {3,3,2};
     auto vertex = VertexArray(vertices,sizeof(vertices),indices,sizeof(indices),a,3);
 
-
-    auto vertex1 = VertexArray(vertices,sizeof(vertices),indices,sizeof(indices),a,3);
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
-        glDisable(GL_DEPTH_TEST);
         glClear(GL_COLOR_BUFFER_BIT);
-        glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
         vertex.bindVAO();
-        trans = glm::translate(trans, glm::vec3(0.0f, 0.0f, 0.0f));
-        trans = glm::rotate(trans, (float)glfwGetTime()/1000.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-        shader.setMat4("trans",trans);
-        glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,nullptr);
 
-        vertex1.bindVAO();
-        shader.setMat4("trans",trans1);
         glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,nullptr);
 
         glfwSwapBuffers(window);
