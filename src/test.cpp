@@ -58,6 +58,7 @@ int main()
     auto vertex = VertexArray(vertices,sizeof(vertices),indices,sizeof(indices),a,3);
 
 
+
     auto vertex1 = VertexArray(vertices,sizeof(vertices),indices,sizeof(indices),a,3);
     while (!glfwWindowShouldClose(window))
     {
