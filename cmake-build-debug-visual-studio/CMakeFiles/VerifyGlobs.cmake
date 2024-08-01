@@ -5,6 +5,7 @@ cmake_policy(SET CMP0009 NEW)
 # headers at CMakeLists.txt:44 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/CG/opengl-env/opengl-env/include/*.h")
 set(OLD_GLOB
+  "D:/CG/opengl-env/opengl-env/include/Camera.h"
   "D:/CG/opengl-env/opengl-env/include/Vertex.h"
   "D:/CG/opengl-env/opengl-env/include/core.h"
   "D:/CG/opengl-env/opengl-env/include/model.h"

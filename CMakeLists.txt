@@ -49,7 +49,8 @@ add_executable(${PROJECT_NAME} ${sources} ${headers}
         include/Vertex.h
         include/texture.h
         include/core.h
-        include/model.h)
+        include/model.h
+        include/Camera.h)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 add_subdirectory(glm)
