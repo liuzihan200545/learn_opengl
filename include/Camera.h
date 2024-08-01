@@ -1,5 +1,7 @@
 #include <core.h>
 
+float lastFrame;
+
 class Screen_info{
 public:
     Screen_info(){};

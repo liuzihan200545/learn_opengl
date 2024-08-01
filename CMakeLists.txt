@@ -43,14 +43,13 @@ endif()
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS src/*.cpp)
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS include/*.h include/*.hpp)
 add_executable(${PROJECT_NAME} ${sources} ${headers}
-        src/main.cpp
-        src/test.cpp
         include/shader.h
         include/Vertex.h
         include/texture.h
         include/core.h
         include/model.h
-        include/Camera.h)
+        include/Camera.h
+        src/main.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 add_subdirectory(glm)

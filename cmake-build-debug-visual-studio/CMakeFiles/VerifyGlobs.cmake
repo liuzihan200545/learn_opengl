@@ -14,7 +14,6 @@ set(OLD_GLOB
   "D:/CG/opengl-env/opengl-env/include/stb_image_write.h"
   "D:/CG/opengl-env/opengl-env/include/stb_truetype.h"
   "D:/CG/opengl-env/opengl-env/include/texture.h"
-  "D:/CG/opengl-env/opengl-env/include/tinyexr.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -24,14 +23,6 @@ endif()
 # headers at CMakeLists.txt:44 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/CG/opengl-env/opengl-env/include/*.hpp")
 set(OLD_GLOB
-  "D:/CG/opengl-env/opengl-env/include/GLRAII.hpp"
-  "D:/CG/opengl-env/opengl-env/include/Game.hpp"
-  "D:/CG/opengl-env/opengl-env/include/Image.hpp"
-  "D:/CG/opengl-env/opengl-env/include/InputCtl.hpp"
-  "D:/CG/opengl-env/opengl-env/include/KeyBinding.hpp"
-  "D:/CG/opengl-env/opengl-env/include/OBJ.hpp"
-  "D:/CG/opengl-env/opengl-env/include/check_gl.hpp"
-  "D:/CG/opengl-env/opengl-env/include/print.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -42,7 +33,6 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/CG/opengl-env/opengl-env/src/*.cpp")
 set(OLD_GLOB
   "D:/CG/opengl-env/opengl-env/src/main.cpp"
-  "D:/CG/opengl-env/opengl-env/src/test.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

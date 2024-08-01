@@ -3,8 +3,13 @@
 
 class VertexArray{
 public:
-    //VertexArray(float vertices[],unsigned int vertices_size,unsigned int indices[],unsigned int indices_size);
 
+    // vertices:数据
+    // vertices_size:数据数组大小，应传入sizeof(vertices)
+    // indices:面与顶点对应关系
+    // indices_size:indices数组大小，应传入sizeof(indices)
+    // attr_length[]:传入数组，数组中元素依次表示每个顶点的特性的float数量
+    // attris_size：attr_length的长度
     VertexArray(float *vertices, unsigned int vertices_size, unsigned int *indices, unsigned int indices_size,
                 unsigned int *attr_length, unsigned int attris_size);
 
@@ -20,12 +25,7 @@ private:
     unsigned int ebo;
 };
 
-// vertices:数据
-// vertices_size:数据数组大小，应传入sizeof(vertices)
-// indices:面与顶点对应关系
-// indices_size:indices数组大小，应传入sizeof(indices)
-// attr_length[]:传入数组，数组中元素依次表示每个顶点的特性的float数量
-// attris_size：attr_length的长度
+
 VertexArray::VertexArray(float *vertices, unsigned int vertices_size, unsigned int *indices,unsigned int indices_size,unsigned int attr_length[],unsigned int attris_size) {
 
     glGenBuffers(1,&vbo);
