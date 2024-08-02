@@ -293,6 +293,12 @@ GLFW_SOURCE_DIR:STATIC=D:/CG/opengl-env/opengl-env/glfw
 //Force use of high-performance GPU on hybrid systems
 GLFW_USE_HYBRID_HPG:BOOL=OFF
 
+//No help, variable specified on the command line.
+Python3_EXECUTABLE:UNINITIALIZED=D:/CG/opengl-env/opengl-env/venv/Scripts/python.exe
+
+//No help, variable specified on the command line.
+Python_EXECUTABLE:UNINITIALIZED=D:/CG/opengl-env/opengl-env/venv/Scripts/python.exe
+
 //Use MSVC runtime library DLL
 USE_MSVC_RUNTIME_LIBRARY_DLL:BOOL=ON
 

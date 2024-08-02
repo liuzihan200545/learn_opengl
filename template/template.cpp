@@ -54,7 +54,7 @@ int main(){
     call_backs_and_settings(window);
 
     //Create shader
-    auto shader = Shader("../shaders/vs.glsl","../shaders/fs.glsl");
+    auto shader = Shader("../shaders/vs1.glsl","../shaders/fs1.glsl");
     shader.use();
 
     //Create texture

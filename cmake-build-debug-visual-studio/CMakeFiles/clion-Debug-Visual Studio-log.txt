@@ -1,26 +1,7 @@
-"D:\CLion 2024.1.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/CLion 2024.1.4/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\CG\opengl-env\opengl-env -B D:\CG\opengl-env\opengl-env\cmake-build-debug-visual-studio
--- The CXX compiler identification is MSVC 19.37.32824.0
--- The C compiler identification is MSVC 19.37.32824.0
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe - skipped
--- Detecting C compile features
--- Detecting C compile features - done
+"D:\CLion 2024.1.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/CLion 2024.1.4/bin/ninja/win/x64/ninja.exe" -G Ninja -DPython_EXECUTABLE=D:/CG/opengl-env/opengl-env/venv/Scripts/python.exe -DPython3_EXECUTABLE=D:/CG/opengl-env/opengl-env/venv/Scripts/python.exe -S D:\CG\opengl-env\opengl-env -B D:\CG\opengl-env\opengl-env\cmake-build-debug-visual-studio
 -- CMake build type: Debug
 -- GLM: Version 0.9.9.9
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
--- Looking for pthread_create in pthreads
--- Looking for pthread_create in pthreads - not found
--- Looking for pthread_create in pthread
--- Looking for pthread_create in pthread - not found
--- Found Threads: TRUE  
 -- Including Win32 support
--- Configuring done (1.6s)
+-- Configuring done (0.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: D:/CG/opengl-env/opengl-env/cmake-build-debug-visual-studio

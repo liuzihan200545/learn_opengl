@@ -8,6 +8,7 @@ set(OLD_GLOB
   "D:/CG/opengl-env/opengl-env/include/Camera.h"
   "D:/CG/opengl-env/opengl-env/include/Vertex.h"
   "D:/CG/opengl-env/opengl-env/include/core.h"
+  "D:/CG/opengl-env/opengl-env/include/mesh.h"
   "D:/CG/opengl-env/opengl-env/include/model.h"
   "D:/CG/opengl-env/opengl-env/include/shader.h"
   "D:/CG/opengl-env/opengl-env/include/stb_image.h"

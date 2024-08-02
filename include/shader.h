@@ -23,6 +23,8 @@ public:
 
     void setMat4(const std::string &name,glm::mat4 transform) const;
 
+    void setVec3(const std::string &name,glm::vec3 vector) const;
+
 private:
     void checkCompileErrors(unsigned int shader, std::string type);
 };
@@ -132,5 +134,11 @@ void Shader::checkCompileErrors(unsigned int shader, std::string type)
 Shader::~Shader() {
     glDeleteShader(ID);
 }
+
+void Shader::setVec3(const std::string &name, glm::vec3 vector) const {
+    unsigned int vectorLoc = glGetUniformLocation(ID, name.c_str());
+    glUniform3fv(vectorLoc, 1, glm::value_ptr(vector));
+}
+
 
 

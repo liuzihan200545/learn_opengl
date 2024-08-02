@@ -17,6 +17,8 @@ public:
 
     void bindVAO();
 
+    void bindVBO();
+
     ~VertexArray();
 
 private:
@@ -58,6 +60,7 @@ VertexArray::VertexArray(float *vertices, unsigned int vertices_size, unsigned i
         SetProperty(i,(int)attr_length[i],(int)sum_attris,offsite);
         offsite += (int)attr_length[i];
     }
+    glBindVertexArray(0);
 }
 
 void VertexArray::SetProperty(int index,int vertex_num,int stride,int offsite) {
@@ -74,4 +77,9 @@ VertexArray::~VertexArray() {
     glDeleteBuffers(1,&vbo);
     glDeleteBuffers(1,&ebo);
     glDeleteVertexArrays(1,&vao);
+}
+
+void VertexArray::bindVBO() {
+    this->bindVAO();
+    glBindBuffer(GL_ARRAY_BUFFER,vbo);
 }

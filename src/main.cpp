@@ -1,5 +1,7 @@
 #include "core.h"
 #include "Camera.h"
+#include <format>
+#include "mesh.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -54,32 +56,54 @@ int main(){
     call_backs_and_settings(window);
 
     //Create shader
-    auto shader = Shader("../shaders/vs.glsl","../shaders/fs.glsl");
-    shader.use();
+    auto shader = Shader("../shaders/vs1.glsl","../shaders/fs1.glsl");
+    auto shader1 = Shader("../shaders/vs2.glsl","../shaders/fs2.glsl");
 
     //Create texture
     auto texture = Texture("../assets/container.jpg",0);
     shader.setInt("Sampler",0);
 
+    auto light_pos = glm::vec3(0.0f,0.9f,0.0f);
+
     //Create mvp translations
-    glm::mat4 model(1.0f);
+    glm::mat4 model1(1.0f);
     glm::mat4 projection(1.0f);
-    shader.setMat4("model",model);
+    //shader.setMat4("model",model);
+    glm::mat4 model2(1.0f);
+    model2 = glm::translate(model1,light_pos);
+    model2 = glm::scale(model2, glm::vec3(0.2f));
 
     //Create the model
-    unsigned int a[] = {3,2};
-    auto vertex = VertexArray(vertices,sizeof(vertices),indices,sizeof(indices),a,2);
+    unsigned int a[] = {3,2,3};
+    auto vertex1 = VertexArray(vertices,sizeof(vertices),indices,sizeof(indices),a,3);
+    auto vertex2 = VertexArray(vertices,sizeof(vertices),indices,sizeof(indices),a,3);
 
     //Main loop
     while(!glfwWindowShouldClose(window)){
         processInput(window);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         projection = glm::perspective(glm::radians(camera.get_fov()), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        shader.use();
+        shader.setVec3("objectColor",glm::vec3(1.0f, 0.5f, 0.31f));
+        shader.setVec3("lightColor",glm::vec3(1.0f, 1.0f, 1.0f));
         shader.setMat4("projection",projection);
         auto view = camera.view_matrix();
         shader.setMat4("view",view);
-        vertex.bindVAO();
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        shader.setMat4("model",model1);
+        shader.setVec3("lightPos",light_pos);
+        shader.setVec3("viewPos",camera.get_pos());
+        vertex1.bindVBO();
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices)/(8*sizeof(float)));
+
+        shader1.use();
+        shader1.setMat4("model",model2);
+        shader1.setMat4("projection",projection);
+        shader1.setMat4("view",camera.view_matrix());
+        shader1.setVec3("lightColor",glm::vec3(1.0f, 1.0f, 1.0f));
+
+        //std::cout << std::format("x:{} y:{} z:{}",camera.get_pos().x,camera.get_pos().y,camera.get_pos().z) << std::endl;
+        vertex2.bindVBO();
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices)/(8*sizeof(float)));
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

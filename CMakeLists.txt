@@ -49,7 +49,8 @@ add_executable(${PROJECT_NAME} ${sources} ${headers}
         include/core.h
         include/model.h
         include/Camera.h
-        src/main.cpp)
+        src/main.cpp
+        include/mesh.h)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 add_subdirectory(glm)

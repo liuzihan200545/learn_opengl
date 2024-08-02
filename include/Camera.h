@@ -81,6 +81,10 @@ public:
         return fov;
     }
 
+    glm::vec3 get_pos(){
+        return this->m_cameraPos;
+    }
+
 private:
     Screen_info m_screen;
 
